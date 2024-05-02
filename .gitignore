@@ -58,3 +58,4 @@ docs/_build/
 # Caches
 api-cache.txt
 api-cache-old.txt
+export.txt

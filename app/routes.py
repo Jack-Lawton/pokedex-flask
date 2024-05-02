@@ -5,6 +5,9 @@ import json
 import ast
 import os
 
+if not os.path.exists("api-cache.txt"):
+    import cache_data
+
 f = open("api-cache.txt", "r")
 pokedex_dict_raw = ast.literal_eval(f.read())
 
