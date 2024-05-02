@@ -1,11 +1,7 @@
-#from flask import Flask, render_template
+
 import requests
-import json
 import ast
 import os
-
-#pokemon = requests.get('https://pokeapi.co/api/v2/pokemon/'+str(151)).json()
-#print(pokemon)
 
 pokedex_dict = {}
 max_pokemon = 905
@@ -16,21 +12,27 @@ if os.path.exists("api-cache.txt"):
     pokedex_dict = ast.literal_eval(f.read())
 
 else:
+    use_export = os.path.exists("export.txt")
+
     # Open export list
     export_pokemon = {}
     n = 0
-    with open("export.txt", "r") as f:
-        for line in f.readlines():
-            n += 1
-            export_pokemon[line.split("(")[1].split(")")[0].replace("_", "-")] = n
+    if use_export:
+        with open("export.txt", "r") as f:
+            for line in f.readlines():
+                n += 1
+                export_pokemon[line.split("(")[1].split(")")[0].replace("_", "-")] = n
 
     for n in range(1, max_pokemon): #All pokemon in Kanto region = 1 (Bulbasaur) to 807 (Zeraora) ==> total of 807 Pokemon exist
         pokemon = requests.get('https://pokeapi.co/api/v2/pokemon/'+str(n)).json()
         name = pokemon['name']
-        if name.upper() not in export_pokemon.keys():
+        if use_export and (name.upper() not in export_pokemon.keys()):
             print("SKIP " + name)
             continue
-        i = export_pokemon[name.upper()]
+        if use_export:
+            i = export_pokemon[name.upper()]
+        else:
+            i = n
         pokedex_dict[i] = {}
         print("Fetching " + name)
         img_url = pokemon['sprites']['front_default']
