@@ -222,7 +222,8 @@ main > nav > h3 {
 
 .types-container {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-gap: 0px;
-    margin-top: 0px; /* Adjust spacing as needed */
+    grid-template-columns: repeat(9, 1fr);
+    grid-gap: 10px;
+    margin-top: 20px; /* Adjust spacing as needed */
+    /* width: 800px; /* Set the fixed width */
 }
