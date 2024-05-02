@@ -198,3 +198,24 @@ main > nav > h3 {
   background-color: rgb(251, 55, 55);
 }
 */
+
+.type-btn {
+  width: 98px;
+  height: 20px;
+  background-color: black;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Add transition for smooth color change */
+}
+
+.type-btn:hover {
+  background-color: rgb(237, 247, 32); /* Change background color to yellow on hover */
+}
+
+.type-btn img {
+  width: 95%; /* Adjust size as needed */
+  height: auto;
+}
