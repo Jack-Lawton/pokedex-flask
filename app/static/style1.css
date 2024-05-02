@@ -219,3 +219,10 @@ main > nav > h3 {
   width: 95%; /* Adjust size as needed */
   height: auto;
 }
+
+.types-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 0px;
+    margin-top: 0px; /* Adjust spacing as needed */
+}
