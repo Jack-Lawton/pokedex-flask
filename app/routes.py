@@ -1,15 +1,14 @@
+
 from app import app
-from flask import render_template, url_for
-import requests
-import json
+from flask import render_template
 import ast
 import os
 
 if not os.path.exists("api-cache.txt"):
     import cache_data
 
-f = open("api-cache.txt", "r")
-pokedex_dict_raw = ast.literal_eval(f.read())
+with open("api-cache.txt", "r") as f:
+    pokedex_dict_raw = ast.literal_eval(f.read())
 
 pokedex_dict = {}
 
