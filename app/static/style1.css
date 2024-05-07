@@ -91,6 +91,15 @@ main > nav > h1 {
     /*text-transform: uppercase;*/
 }
 
+.title-link {
+    text-align: center;
+    color: rgb(231, 229, 36);
+    margin-bottom: 2rem;
+    font-size: 3rem;
+    text-decoration: none;
+    /*text-transform: uppercase;*/
+}
+
 main > nav > h3 {
     text-align: center;
     color: rgb(0, 0, 0);
